@@ -1,6 +1,4 @@
-// AnalyticalResultItemRow.tsx
-
-import type { SampleTest } from "../../../interfaces/Types";
+import type { SampleTest } from "../../../types/report.types";
 
 interface AnalyticalResultItemRowProps {
     test: SampleTest;
@@ -30,9 +28,6 @@ function AnalyticalResultItemRow({ test }: AnalyticalResultItemRowProps) {
             </div>
             <div className="col-span-1 text-[10px] text-black flex items-center justify-center text-center px-1 py-1 break-words whitespace-normal">
                 {test.method}
-            </div>
-            <div className="col-span-1 text-[10px] text-black flex items-center justify-center text-center px-1 py-1 break-words whitespace-normal">
-                {test.analyzedDate}
             </div>
             <div className="col-span-1 text-[10px] text-black flex items-center justify-center text-center px-1 py-1 break-words whitespace-normal">
                 {test.by}

@@ -1,5 +1,5 @@
-import type { PaginatedSample } from "../../utils/paginateSamples";
 
+import type { PaginatedSample } from "../../../types/report.types";
 import AnalyticalResultItemHeader from "./AnalyticalResultItemHeader";
 
 import AnalyticResultItemRow from "./AnalyticResultItemRow";

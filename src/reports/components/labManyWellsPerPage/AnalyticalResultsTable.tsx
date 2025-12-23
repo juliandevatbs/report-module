@@ -1,4 +1,4 @@
-import type { Sample } from "../../../interfaces/Types";
+import type { Sample } from "../../../types/report.types";
 import AnalyticalResultItem from "./AnalyticalResultItem";
 import AnalyticalResultsHeader from "./AnalyticalResultsHeader";
 

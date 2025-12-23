@@ -1,4 +1,4 @@
-import type { Sample } from "../../interfaces/Types";
+import type { Sample } from "../../types/report.types";
 
 
 function paginateSamples(

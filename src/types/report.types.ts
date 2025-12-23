@@ -1,17 +1,40 @@
+export interface PaginatedSample {
+    sample: Sample;
+    tests: SampleTest[];
+    isFirstPage: boolean;
+    isContinuation: boolean;
+}
+
+export interface HeaderCommonProps {
+    
+    projectName?: string;
+    labReceivedDate?: string;
+    companyName?: string;
+    clientName?: string;
+    clientAddress?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+    projectLocation?: string;
+    clientPhone?: string;
+    clientProjectNumber?: string;
+    labReportingBatchID?: string;
+}
+
+    
+
+
 export interface ProjectData {
-    
-    LabReportingBatchID: string;
-    ProjectName: string;
-    ProjectLocation: string;
-    ClientProjectNumber: string;
-    Contact: string;
-    Phone: string;
-    Address_1: string;
-    City: string;
-    State_Prov: string;
-    Postal_Code: string;
-    
-    
+  LabReportingBatchID?: string;
+  ProjectName?: string;
+  ProjectLocation?: string;
+  ClientProjectNumber?: string;
+  Contact?: string;
+  Phone?: string;
+  Address_1?: string;
+  City?: string;
+  State_Prov?: string;
+  Postal_Code?: string;
 }
 
 export interface SampleSummary {
@@ -25,6 +48,7 @@ export interface SampleSummary {
 
 export interface SampleTest {
     analyteName: string;
+    analyzedDate: string;
     analyteId?: string;
     results: string | number | null;
     units: string | null;
@@ -79,12 +103,11 @@ export interface ReportResponse {
     error?: string;
     
     
-    
 }
 
 
 export interface UseReportDataReturn {
-  data: ReportResponse | null;
-  loading: boolean;
-  error: string | null;
+  data?: ReportResponse | null;
+  loading?: boolean;
+  error?: string | null;
 }

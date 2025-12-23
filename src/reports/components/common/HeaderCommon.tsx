@@ -1,35 +1,24 @@
-function HeaderCommon(
-    {   
-        projectName = "LABS INC", 
-        labReceivedDate = "04/07/25 12:43:00",
-        companyName = "WSP",
-        clientName = "Robert Sheridan",
-        clientAddress = "550 NorthLake Blvd. Suite 1000",
-        city = "Altamonte Springs",
-        state = "FL",
-        zip = "31701",
-        projectLocation = "NPDES Outfalls",
-        clientPhone = "407-522-7570",
-        clientProjectNumber = "US0041111.8242.02",
-        labReportingBatchID = "2504013"
+import type { HeaderCommonProps } from "../../../types/report.types";
 
-
-    }: { 
-        projectName: string,
-        labReceivedDate: string
-        companyName: string,
-        clientName: string,
-        clientAddress: string,
-        city: string,
-        state: string,
-        zip: string,
-        projectLocation: string,
-        clientPhone: string,
-        clientProjectNumber: string,
-        labReportingBatchID: string
+export default function HeaderCommon(
     
-    }) 
     
+    {
+        projectName="",
+        labReceivedDate ="",
+        companyName ="",
+        clientName ="",
+        clientAddress ="",
+        city="",
+        state="",
+        zip="",
+        projectLocation="",
+        clientPhone="",
+        clientProjectNumber="",
+        labReportingBatchID=""
+        
+        
+    } : HeaderCommonProps ) 
     
     {
 
@@ -112,4 +101,3 @@ function HeaderCommon(
 
 
 
-export default HeaderCommon;

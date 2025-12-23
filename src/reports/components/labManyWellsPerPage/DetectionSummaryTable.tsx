@@ -1,5 +1,5 @@
-import type { Sample } from "../../../interfaces/Types";
 
+import type { Sample } from "../../../types/report.types";
 import DetectionSummaryHeader from "./DetectionSummaryHeader";
 import DetectionSummaryResultItem from "./DetectionSummaryResultItem";
 

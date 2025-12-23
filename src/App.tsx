@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import ReportPreview from './pages/ReportPreview'
 
 
@@ -8,11 +8,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         
-        
         {/* Vista previa HTML del reporte */}
-        <Route path="/report-preview" element={<ReportPreview clientNameMain='' />} />
+        <Route path="/report-preview" element={<ReportPreview />} />
         
-        
+        {/* Ruta para páginas no encontradas */}
+        <Route path="*" element={<Navigate to="/report-preview" replace />} />
       </Routes>
     </BrowserRouter>
   )
