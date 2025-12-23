@@ -1,6 +1,6 @@
 import LabManyWellsPerPage from "../reports/templates/LabManyWellsPerPage";
 
-function ReportPreview ({ clientNameMain = "Julian Homez" }: { clientNameMain: string }) {
+function ReportPreview () {
 
 
     return(
@@ -12,8 +12,7 @@ function ReportPreview ({ clientNameMain = "Julian Homez" }: { clientNameMain: s
             
                 <LabManyWellsPerPage 
                 
-                    clientNameOrg={clientNameMain}
-                
+                   
                 
                 />
 

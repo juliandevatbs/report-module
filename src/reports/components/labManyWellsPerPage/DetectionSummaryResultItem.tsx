@@ -9,13 +9,20 @@ interface DetectionSummaryResultItemProps {
 
 function DetectionSummaryResultItem({ sample }: DetectionSummaryResultItemProps) {
 
-    // Filtrar solo los tests donde Results > PQL
     const detectedTests = sample.sampleTests.filter(test => {
-        const resultValue = parseFloat(test.results.replace(/[<>]/g, ''));
-        const pqlValue = parseFloat(test.pql);
-        
-        return !isNaN(resultValue) && !isNaN(pqlValue) && resultValue > pqlValue;
-    });
+    if (test.results === null || test.pql === null) return false;
+
+    const resultStr = String(test.results).replace(/[<>]/g, '');
+    const pqlStr = String(test.pql);
+
+    const resultValue = parseFloat(resultStr);
+    const pqlValue = parseFloat(pqlStr);
+
+    return !isNaN(resultValue) && !isNaN(pqlValue) && resultValue > pqlValue;
+    
+});
+
+
 
     // Si no hay tests detectados, no renderizar nada
     if (detectedTests.length === 0) {
@@ -57,8 +64,11 @@ function DetectionSummaryResultItem({ sample }: DetectionSummaryResultItemProps)
             <AnalyticalResultItemHeader />
 
             {/* Renderizar solo los tests detectados */}
-            {detectedTests.map((test, index) => (
-                <AnalyticResultItemRow key={index} test={test} />
+            {detectedTests.map(test => (
+                <AnalyticResultItemRow
+                    key={`${test.analyteName}-${test.method}-${sample.labSampleId}`}
+                    test={test}
+                />
             ))}
 
         </div>

@@ -1,6 +1,5 @@
 export interface SampleTest {
     analyteName: string;
-    analyteId: string;
     results: string;
     units: string;
     df: string;
@@ -20,4 +19,12 @@ export interface Sample {
     collectedBy: string;
     matrixId: string;
     sampleTests: SampleTest[];
+}
+
+export interface ReportClient {
+    
+    batch_id: string;
+    
+    
+    
 }

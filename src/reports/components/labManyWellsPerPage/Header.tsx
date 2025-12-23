@@ -1,3 +1,6 @@
+
+
+
 function Header({ clientName }: { clientName: string }) {
 
     return (
@@ -10,7 +13,7 @@ function Header({ clientName }: { clientName: string }) {
 
                 <div className="w-full h-32  pl-3.5 flex items-start">
                 
-                    <img src="src\assets\LOGO_SRL_FINAL.png" className="w-24"/>
+                    <img src="src\assets\LOGO_SRL_FINAL.png" className="w-22"/>
 
                 
                 </div>
@@ -20,13 +23,13 @@ function Header({ clientName }: { clientName: string }) {
 
                 <div className="w-full h-auto bg-[#e6f1ff] border-6 border-[#aed3fc] px-1.5 py-1 flex flex-col gap-0.5">
 
-                    <span className="font-bold  text-[10px] text-black">
-                        Thank you {clientName} for the opportunity to be of service
+                    <span className="font-bold  text-[8px] text-black">
+                        Thank you {clientName ?? "our client"} for the opportunity to be of service
                         to you and your company. We sincerely Appreciate Your Business.
                     </span>
 
 
-                    <span className="text-[10px] text-black">
+                    <span className="text-[8px] text-black">
                         SRL certifies these Laboratory Results were produced in accordance
                         with NELAC Standards. Hold times and presevation requirements were met for
                         all analytes unless specifically call noted in the report. Results relate

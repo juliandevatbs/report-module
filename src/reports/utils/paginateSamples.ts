@@ -1,110 +1,40 @@
-import type { Sample, SampleTest } from "../../interfaces/Types";
+import type { Sample } from "../../interfaces/Types";
 
 
-export interface PaginatedSample {
-
-    sample: Sample;
-
-    tests: SampleTest[];
-
-    isFirstPage: boolean;
-
-    isContinuation: boolean;
-
-    sampleIndex: number;
-
-}
-
-
-export function paginateSamples(
-
+function paginateSamples(
     samples: Sample[], 
+    maxHeightPerPage: number = 900,
+    estimatedHeaderHeight: number = 100,
+    estimatedTestRowHeight: number = 30
+): Sample[][] {
+    const pages: Sample[][] = [];
+    let currentPage: Sample[] = [];
+    let currentPageHeight = 0;
 
-    maxTestsPerPage: number = 20
-
-): PaginatedSample[][] {
-
-    const pages: PaginatedSample[][] = [];
-
-    let currentPage: PaginatedSample[] = [];
-
-    let currentTestCount = 0;
-
-
-    samples.forEach((sample, sampleIndex) => {
-
-        const allTests = sample.sampleTests;
-
-        let remainingTests = [...allTests];
-
-        let isFirstPageForSample = true;
-
-
-        while (remainingTests.length > 0) {
-
-            const availableSpace = maxTestsPerPage - currentTestCount;
-
-
-            if (availableSpace <= 0) {
-
-                pages.push([...currentPage]);
-
-                currentPage = [];
-
-                currentTestCount = 0;
-
-            }
-
-
-            const spaceToUse = Math.max(1, maxTestsPerPage - currentTestCount);
-
-            const testsToAdd = remainingTests.slice(0, spaceToUse);
-
-            remainingTests = remainingTests.slice(testsToAdd.length);
-
-
-            currentPage.push({
-
-                sample: sample,
-
-                tests: testsToAdd,
-
-                isFirstPage: isFirstPageForSample,
-
-                isContinuation: !isFirstPageForSample,
-
-                sampleIndex: sampleIndex
-
-            });
-
-
-            currentTestCount += testsToAdd.length;
-
-            isFirstPageForSample = false;
-
-
-            if (currentTestCount >= maxTestsPerPage) {
-
-                pages.push([...currentPage]);
-
-                currentPage = [];
-
-                currentTestCount = 0;
-
-            }
-
+    samples.forEach((sample) => {
+        // Calcula altura estimada de este sample
+        // Header del sample + número de tests * altura por test
+        const sampleHeight = estimatedHeaderHeight + (sample.sampleTests.length * estimatedTestRowHeight);
+        
+        // Si agregar este sample excede la altura máxima
+        if (currentPageHeight + sampleHeight > maxHeightPerPage && currentPage.length > 0) {
+            // Guarda la página actual y comienza una nueva
+            pages.push(currentPage);
+            currentPage = [sample];
+            currentPageHeight = sampleHeight;
+        } else {
+            // Agrega a la página actual
+            currentPage.push(sample);
+            currentPageHeight += sampleHeight;
         }
-
     });
 
-
+    // No olvides la última página
     if (currentPage.length > 0) {
-
         pages.push(currentPage);
-
     }
 
-
     return pages;
-
 }
+
+export default paginateSamples;

@@ -13,23 +13,37 @@ interface AnalyticalResultItemProps {
 export const AnalyticalResultItem: React.FC<AnalyticalResultItemProps> = ({ sample }) => {
     return (
         <View style={{ width: '100%' }}>
+            
             <View style={styles.sampleInfoContainer}>
+                
                 <View style={styles.sampleInfoColumn}>
+                    
                     <Text style={styles.sampleInfoText}>
+                        
                         Client Sample ID: <Text style={{ fontWeight: 'bold' }}>{sample.clientSampleId}</Text>
+                        
                     </Text>
+                    
                     <Text style={styles.sampleInfoText}>
+                        
                         Lab Sample ID: <Text style={{ fontWeight: 'bold' }}>{sample.labSampleId}</Text>
+                        
                     </Text>
+                    
                 </View>
 
                 <View style={styles.sampleInfoColumn}>
+                    
                     <Text style={styles.sampleInfoText}>
+                        
                         Date Collected: <Text style={{ fontWeight: 'bold' }}>{sample.dateCollected}</Text>
+                        
                     </Text>
                     <Text style={styles.sampleInfoText}>
+                        
                         Collected By: <Text style={{ fontWeight: 'bold' }}>{sample.collectedBy}</Text>
                     </Text>
+                    
                 </View>
 
                 <View style={styles.sampleInfoColumn}>

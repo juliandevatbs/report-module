@@ -16,20 +16,20 @@ function SamplesSummary ({ samples }: SamplesSummaryProps) {
 
     return (
         <>
-            <div className="w-11/12 h-60 flex flex-col mt-3 gap-1">
+            <div className="w-11/12 h-52 flex flex-col mt-3">
             
-                <div className="w-full h-auto bg-[#e6f1ff] border-6 border-[#aed3fc] px-1 py-1 flex">
-                    <div className="w-1/6 h-full flex justify-center items-center text-black text-xs">Item</div>
-                    <div className="w-1/6 h-full flex justify-center items-center text-black text-xs">Lab Sample ID</div>
-                    <div className="w-1/6 h-full flex justify-center items-center text-black text-xs">Client Sample ID</div>
-                    <div className="w-1/6 h-full flex justify-center items-center text-black text-xs">Collected<br/>Date Time</div>
-                    <div className="w-1/6 h-full flex justify-center items-center text-black text-xs">Sample Matrix</div>
-                    <div className="w-1/6 h-full flex justify-center items-center text-black text-xs">Analysis Requested</div>
+                <div className="w-full h-auto bg-[#e6f1ff] border-6 border-[#aed3fc] px-1 py-1 flex font-bold">
+                    <div className="w-1/8 h-full flex justify-center items-center text-black text-[10px] text-center">Item</div>
+                    <div className="w-1/6 h-full flex justify-center items-center text-black text-[10px] text-center">Lab Sample ID</div>
+                    <div className="w-1/6 h-full flex justify-center items-center text-black text-[10px] text-center">Client Sample ID</div>
+                    <div className="w-1/6 h-full flex justify-center items-center text-black text-[10px] text-center">Collected<br/>Date Time</div>
+                    <div className="w-1/6 h-full flex justify-center items-center text-black text-[10px] text-center">Sample Matrix</div>
+                    <div className="w-2/6 h-full flex justify-center items-center text-black text-[10px] text-center">Analysis Requested</div>
                 </div>
-
-                {samples.map((sample, index) => (
+                
+                    
+                    {samples.map((sample, index) => (
                     <SamplesSummaryItem 
-                        key={index}
                         itemNumber={index + 1}
                         labSampleId={sample.labSampleId}
                         clientSampleId={sample.clientSampleId}
@@ -38,6 +38,12 @@ function SamplesSummary ({ samples }: SamplesSummaryProps) {
                         analysisRequested={sample.analysisRequested}
                     />
                 ))}
+                    
+                    
+                    
+
+
+                
 
             </div>
         </>

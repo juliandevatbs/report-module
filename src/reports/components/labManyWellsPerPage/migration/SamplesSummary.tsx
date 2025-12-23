@@ -1,5 +1,5 @@
 
-import { View, Text, Image } from '@react-pdf/renderer';
+import { View, Text } from '@react-pdf/renderer';
 import { styles } from './styles';
 
 interface SampleData {
